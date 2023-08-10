@@ -26,7 +26,7 @@ h1 {
     flex-direction: column;
     width: 200px;
     padding: 5px;
-    border: 1px solid black;
+
     margin-right: 40px;
     margin-bottom: 10px; 
     margin-left: 5px;
@@ -34,30 +34,43 @@ h1 {
 
 #searchBox {
     margin: 5px 0px 5px 0px;
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 0px;
+    text-align: center;
 }
 
 #searchBtn {
     background-color: #FFC938;
+    font-family: 'Karla', sans-serif;
     margin-top: 5px 0px 5px 0px;
     border-radius: 10px;
+    border: 0px;
+    font-size: 18px;
 }
 
 #recentCity {
-    background-color: #FFC938;
+    background-color: #EEEEEE;
     text-align: center;
     margin: 10px 0px 5px 0px;
-    border: 3px black inset;
+
     border-radius: 10px;
 }
 
 .weather-container {
-    background-color: #494ca1;
+    background-color: #666BD0;
     color: #EEEEEE;
     width: 800px;
-    border: 2px black solid;
+
     border-radius: 10px;
     margin-left: 5px;
     padding: 5px;
+}
+
+#selectedCity {
+    color: #FFC938;
+    font-size: 30px;
 }
 
 .today-container {
@@ -73,8 +86,8 @@ h1 {
 }
 
 #fiveDay {
-    background-color: #111144;
-    border: 1px black solid;
+    background-color: #494CA1;
+
     border-radius: 10px;
     margin: 5px;
     width: 120px;
