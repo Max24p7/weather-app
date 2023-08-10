@@ -1,24 +1,35 @@
 body {
     margin: 10px;
+    background-color: #222222;
+    font-family: 'Karla', sans-serif;
 }
 
 h1 {
+    color: #FFC938;
     text-align: center;
+    font-family: 'Cherry Bomb One', cursive;
+    letter-spacing: 5px;
+    font-size: 45px;
 }
 
 .flex-container {
     display:flex;
     /* justify-content:flex-start; */
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .cities-container {
+    background-color: #666BD0;
+    border-radius: 10px;
     display:flex;
     flex-direction: column;
     width: 200px;
     padding: 5px;
     border: 1px solid black;
-    margin-right: 40px; 
+    margin-right: 40px;
+    margin-bottom: 10px; 
+    margin-left: 5px;
 }
 
 #searchBox {
@@ -26,20 +37,25 @@ h1 {
 }
 
 #searchBtn {
-    background-color: skyblue;
+    background-color: #FFC938;
     margin-top: 5px 0px 5px 0px;
+    border-radius: 10px;
 }
 
 #recentCity {
-    background-color: greenyellow;
+    background-color: #FFC938;
     text-align: center;
     margin: 10px 0px 5px 0px;
     border: 3px black inset;
+    border-radius: 10px;
 }
 
 .weather-container {
+    background-color: #494ca1;
+    color: #EEEEEE;
     width: 800px;
     border: 2px black solid;
+    border-radius: 10px;
     margin-left: 5px;
     padding: 5px;
 }
@@ -52,13 +68,30 @@ h1 {
     display:flex;
     justify-content: space-between;
     flex-direction: row;
+    flex-wrap: wrap;
     /* border: 5px solid black; */
 }
 
 #fiveDay {
-    background-color: aqua;
+    background-color: #111144;
     border: 1px black solid;
+    border-radius: 10px;
     margin: 5px;
     width: 120px;
     padding-left: 5px;
 }
+
+@media only screen and (max-width: 1095px) {
+    .cities-container {
+        width: 800px;
+        margin-right: 0px;
+    }
+
+    .forecast-container {
+        justify-content: center;
+    }
+
+    #fiveDay {
+        width: 200px
+    }
+  }

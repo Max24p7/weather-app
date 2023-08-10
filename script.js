@@ -3,6 +3,9 @@ var APIKey = "684199247dee8f69dba5caae5027aed8"
 
 var city;
 
+// create an array for local storage to pull from
+var recentCities = JSON.parse(localStorage.getItem("recentCities")) || [];
+
 var selectedCity = document.getElementById("selectedCity");
 var date = document.getElementById("date");
 var icon = document.getElementById("icon");
@@ -40,6 +43,23 @@ function getWeatherData(city) {
             temp.textContent = "Temperature: " + Math.round(data.main.temp) + " °F";
             windSpeed.textContent = "Wind Speed: " + Math.round(data.wind.speed) + " MPH";
             humidity.textContent = "Humidity: " + data.main.humidity + " %";
+            recentCities.unshift(city); //adds newest searches to the top of the list
+            recentCities.splice(11); //limit to 11 items displayed
+            localStorage.setItem("recentCities", JSON.stringify(recentCities));
+            // code to display recently searched cities
+            var recentCity = document.getElementById("recentCity");
+            recentCity.innerHTML = "";
+            for (var i = 0; i < recentCities.length; i++) {
+              var cityP = document.createElement("p");
+              cityP.textContent = recentCities[i];
+              //click listener that will call getWeatherData function when a city is clicked from local storage
+              cityP.addEventListener("click", function(event) {
+                var city = event.target.textContent;
+                getWeatherData(city);
+              });
+              recentCity.appendChild(cityP);
+            }
+
             getForecast(city);
         })
         .catch(function(error) { //error message if invalid
@@ -132,6 +152,6 @@ function displayIcon(iconCode) {
     }
   }
 
-//   ==========================================================
-//  STILL NEED TO ADD LOCAL STORAGE TO RECENT SEARCHES ON SIDEBAR
-//============================================================
+(function() {
+  getWeatherData("Milwaukee");  //Sets milwaukee as the default displayed city
+})();
